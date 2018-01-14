@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 Plug 'kien/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -54,11 +55,11 @@ set diffopt=filler,vertical
 
 let g:deoplete#enable_at_startup = 1
 imap <expr><TAB>
-	 \ neosnippet#expandable_or_jumpable() ?
-	 \    "\<Plug>(neosnippet_expand_or_jump)" :
-     \ 	  pumvisible() ? "\<C-n>" : "\<TAB>"
+     \ neosnippet#expandable_or_jumpable() ?
+     \    "\<Plug>(neosnippet_expand_or_jump)" :
+     \    pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" let g:airline_powerline_fonts = 1 
+" let g:airline_powerline_fonts = 1
 let g:airline_symbols_ascii = 1
 
 
