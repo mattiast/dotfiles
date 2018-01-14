@@ -1,0 +1,32 @@
+snippet     depends
+abbr        common dependencies
+options     head
+  build-depends:       base >= 4.7 && < 5
+                     , attoparsec
+                     , bytestring
+                     , vector
+                     , containers
+                     , unordered-containers
+                     , text
+                     , optparse-applicative
+                     , aeson
+                     , time
+                     , text-format
+
+                     , array
+                     , mtl
+                     , random
+                     , parallel
+                     , async
+                     , process
+                     , cassava
+
+                     , postgresql-simple
+                     , sqlite-simple
+                     , QuickCheck
+                     , filepath
+                     , directory
+
+snippet     warnings
+abbr        Wall + other stuff
+  ghc-options:         -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wmissing-import-lists

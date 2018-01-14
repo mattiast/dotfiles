@@ -1,0 +1,18 @@
+snippet derive
+	{-# LANGUAGE DeriveDataTypeable #-}
+	{-# LANGUAGE DeriveGeneric #-}
+	{-# LANGUAGE DeriveFunctor #-}
+	{-# LANGUAGE DeriveTraversable #-}
+	{-# LANGUAGE DeriveFoldable #-}
+
+
+snippet      impvec
+abbr         import vector
+  import qualified Data.Vector${1:.Unboxed} as V
+
+snippet impatto
+abbr    import attoparsec
+  import qualified Data.ByteString.Char8 as B
+  import qualified Data.Attoparsec.ByteString.Char8 as A
+
+
