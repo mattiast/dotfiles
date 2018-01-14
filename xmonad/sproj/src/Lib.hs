@@ -33,7 +33,7 @@ myPromptConfig = def { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*",
                                    promptBorderWidth = 0,
                                    historyFilter = uniqSort }
 
-myLayout = Full ||| avoidStruts (Full ||| tiled ||| Mirror tiled ||| tabd)
+myLayout = avoidStruts (Full ||| tiled ||| Mirror tiled ||| tabd) ||| Full
   where
      --  Tall nmaster delta ratio
      tiled = Tall 1 (3/100) (72/100)
