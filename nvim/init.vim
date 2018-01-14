@@ -64,3 +64,11 @@ let g:airline_symbols_ascii = 1
 
 highlight NeomakeWarning ctermfg=54 ctermbg=148
 highlight NeomakeError ctermfg=154 ctermbg=126
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+let g:ledger_bin="hledger"
