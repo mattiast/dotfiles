@@ -32,3 +32,6 @@ fi
 if [[ ! -e $HOME/.xmobarrc ]]; then
     ln -s $CURRENTDIR/xmonad/xmobarrc $HOME/.xmobarrc
 fi
+if [[ ! -e $HOME/.xmonad ]]; then
+    ln -s $CURRENTDIR/xmonad $HOME/.xmonad
+fi

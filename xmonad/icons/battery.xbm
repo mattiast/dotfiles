@@ -1,0 +1,7 @@
+#define battery_width 8
+#define battery_height 6
+static char bat_empty_02_bits[] = {
+  0x7F,
+  0x41, 0xC1, 0xC1, 0x41,
+  0x7F,
+   };

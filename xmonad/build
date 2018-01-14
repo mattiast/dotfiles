@@ -1,0 +1,5 @@
+#!/bin/bash
+export PATH=$PATH:/home/matti/.local/bin
+cd sproj
+stack build
+cp -f `stack path --local-install-root`/bin/xm-konf-exe $1
