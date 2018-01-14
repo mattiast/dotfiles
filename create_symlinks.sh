@@ -15,6 +15,18 @@ fi
 if [[ ! -e $HOME/.Xresources ]]; then
     ln -s $CURRENTDIR/core/Xresources $HOME/.Xresources
 fi
+if [[ ! -e $HOME/.bashrc ]]; then
+    ln -s $CURRENTDIR/core/bashrc $HOME/.bashrc
+fi
+if [[ ! -e $HOME/.bash_profile ]]; then
+    ln -s $CURRENTDIR/core/bash_profile $HOME/.bash_profile
+fi
+if [[ ! -e $HOME/.zshrc ]]; then
+    ln -s $CURRENTDIR/core/zshrc $HOME/.zshrc
+fi
+if [[ ! -e $HOME/.zprofile ]]; then
+    ln -s $CURRENTDIR/core/zprofile $HOME/.zprofile
+fi
 
 # xmonad
 if [[ ! -e $HOME/.xmobarrc ]]; then
