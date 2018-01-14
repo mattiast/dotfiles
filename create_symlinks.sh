@@ -5,9 +5,9 @@ fi
 
 
 if [[ ! -e $HOME/.gitconfig ]]; then
-    ln -s $CURRENTDIR/gitconfig $HOME/.gitconfig
+    ln -s $CURRENTDIR/git/gitconfig $HOME/.gitconfig
 fi
 
 if [[ ! -e $HOME/.gitignore_global ]]; then
-    ln -s $CURRENTDIR/gitignore_global $HOME/.gitignore_global
+    ln -s $CURRENTDIR/git/gitignore_global $HOME/.gitignore_global
 fi
