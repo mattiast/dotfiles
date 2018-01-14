@@ -1,0 +1,119 @@
+- hosts: localhost
+  tasks:
+  - name: set zsh default
+    become: true
+    user:
+      name: matti
+      shell: zsh
+
+  - name: chrome repo
+    become: true
+    when: ansible_os_family == "Debian"
+    apt_repository:
+      repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+      state: present
+      # filename: 'google-chrome'
+
+  - name: chrome repo key
+    become: true
+    when: ansible_os_family == "Debian"
+    apt_key:
+      url: "https://dl.google.com/linux/linux_signing_key.pub"
+      state: present
+
+  - name: docker repo key
+    become: true
+    when: ansible_os_family == "Debian"
+    apt_key:
+      url: "https://download.docker.com/linux/ubuntu/gpg"
+      state: present
+
+  - name: docker repo
+    become: true
+    when: ansible_os_family == "Debian"
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+      state: present
+      # filename: 'google-chrome'
+
+  - name: neovim repo
+    become: true
+    when: ansible_os_family == "Debian"
+    apt_repository:
+      repo: "ppa:neovim-ppa/stable"
+      state: present
+
+  - name: install stuff
+    become: true
+    when: ansible_os_family == "Debian"
+    apt:
+      name: "{{item}}"
+      state: present
+      update_cache: yes
+    with_items:
+      - ansible
+      - build-essential
+      - curl
+      - git
+      - gitk
+      - google-chrome-stable
+      - htop
+      - ipython
+      - ipython-qtconsole
+      - libpq-dev
+      - libqt5webkit5-dev
+      - libsqlite3-dev
+      - network-manager-gnome
+      - octave
+      - postgresql
+#     - python-gpgme
+      - python3-pip
+      - qt5-default
+      - trayer
+#     - vim
+#     - vim-gtk3
+      - neovim
+      - xmobar
+      - xmonad
+      - xterm
+      - xvfb
+      - zsh
+      - feh
+      - calibre
+      - ctags
+      - mpv
+      - sqlite3
+      - z3
+      - xbacklight
+      - libgsl0-dev
+      - liblapack-dev
+      - libatlas-base-dev
+      - evince
+      - libglpk-dev
+      - texlive
+      - rubber
+      - tmux
+      - linux-image-extra-virtual
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - docker-ce
+      - libicu-dev
+
+  - name: pip install stuff
+#   become: true
+    when: ansible_os_family == "Debian"
+    pip:
+      name: "{{item}}"
+      executable: pip3
+    with_items:
+      - numpy
+      - scipy
+      - matplotlib
+      - pandas
+      - requests
+      - flask
+      - dryscrape
+      - psycopg2
+      - neovim
