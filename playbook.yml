@@ -4,7 +4,7 @@
     become: true
     user:
       name: matti
-      shell: zsh
+      shell: /bin/zsh
 
   - name: chrome repo
     become: true
