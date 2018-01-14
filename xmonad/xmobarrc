@@ -1,0 +1,20 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 90
+       , lowerOnStart = True
+       , commands = [ 
+                      Run Battery ["-t","<icon=/home/matti/.vim/xmonad/icons/foo.xbm/> <left>%", "--", "energy_full"] 150
+                    , Run Brightness ["-t", "<icon=/home/matti/.vim/xmonad/icons/bright.xbm/> <percent>%", "--", "-D", "intel_backlight"] 60
+                    , Run Cpu ["-t", "C <total>%"] 10
+                    , Run Date "%a %b %_d %H:%M" "date" 10
+                    , Run Kbd []
+                    , Run Memory ["-t","M <usedratio>%"] 10
+                    , Run Network "wlp4s0" ["-t","N <rx> <tx>"] 10
+                    , Run StdinReader
+                    , Run Weather "EGLC" ["-t","<tempC>C <rh>% <windMph>mph"] 60
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %wlp4s0% |%battery% |%bright% | <fc=#ee9a00>%date%</fc> %EGLC%"
+       }
