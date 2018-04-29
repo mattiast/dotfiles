@@ -4,27 +4,22 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/matti/.oh-my-zsh
 
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-
 ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git stack pip)
+plugins=(git stack pip virtualenv kubectl)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 export EDITOR='vim'
 
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+
 setopt HIST_IGNORE_ALL_DUPS
 setopt extendedglob nomatch notify
 unsetopt appendhistory beep
@@ -32,14 +27,13 @@ bindkey -e
 bindkey "^F" forward-word
 bindkey "^B" backward-word
 
-# End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/matti/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-# The following lines were added by mee
+
 PATH=$PATH:~/.local/bin
 
 eval "`dircolors -b`"
@@ -47,6 +41,8 @@ alias dir='dir --color=auto'
 alias grep='grep --color=auto'
 alias octave='octave --no-gui -q'
 alias cd..='cd ..'
+alias tmux='TERM=screen-256color-bce tmux'
+
 alias ec2table='aws ec2 describe-instances --query \
     \ "Reservations[*].Instances[].{type: InstanceType, state: State.Name, id : InstanceId, publicIp : PublicIpAddress}" --output table'
 alias ec2start="aws ec2 start-instances --instance-ids"
