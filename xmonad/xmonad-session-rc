@@ -21,5 +21,6 @@ if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
 fi
 
-DROPBOXDIR=/home/matti/.dropbox-dist/dropbox-lnx.x86_64-41.4.80
+DROPBOXDIST=/home/matti/.dropbox-dist
+DROPBOXDIR=$DROPBOXDIST/dropbox-lnx.x86_64-`cat $DROPBOXDIST/VERSION`
 $DROPBOXDIR/dropbox start &
