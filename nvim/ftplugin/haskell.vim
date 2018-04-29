@@ -1,9 +1,10 @@
-setlocal omnifunc=necoghc#omnifunc
+" setlocal omnifunc=necoghc#omnifunc
 let g:necoghc_use_stack = 1
 
 map <silent> <leader>tt <Plug>InteroGenericType
+map <silent> <leader>tg <Plug>InteroType
 map <silent> <leader>tr :InteroReload<cr>
-map <silent> <leader>tl :InteroLoadCurrentFile<cr>
+map <silent> <leader>tl :InteroLoadCurrentModule<cr>
 map <silent> <leader>to :InteroOpen<cr>
 map <silent> <leader>th :InteroHide<cr>
 map <silent> <leader>ti :InteroInfo<cr>

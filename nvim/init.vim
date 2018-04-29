@@ -19,7 +19,15 @@ Plug 'parsonsmatt/intero-neovim'
 Plug 'eagletmt/neco-ghc'
 
 Plug 'ElmCast/elm-vim'
+Plug 'majutsushi/tagbar'
+Plug 'pbogut/deoplete-elm'
+Plug 'cstrahan/vim-capnp'
+Plug 'benmills/vimux'
 
+Plug 'idris-hackers/idris-vim'
+call plug#end()
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
 colorscheme inkpot
 
 let mapleader = ","
@@ -31,17 +39,21 @@ nnoremap <silent> <leader>a :call BufferList()<cr>
 nnoremap <silent> <leader>m :CtrlPMRUFiles<cr>
 nnoremap <silent> <leader>f :CtrlP<cr>
 nnoremap <silent> <leader>d :CtrlPDir<cr>
+nnoremap <silent> <leader>g :TagbarToggle<cr>
 nnoremap <silent> <leader>r :r! date<cr><cr>O<esc>O
 nnoremap <leader>h :cd %:h<cr>
 vnoremap <leader>s "*y
 nnoremap <leader>p "*p
+vnoremap <leader>S "+y
+nnoremap <leader>P "+p
+nnoremap <leader>c :%s///gn
 vnoremap <leader>' :s/'/ä/g
 vnoremap <leader>; :s/;/ö/g
-call plug#end()
 
 nnoremap <silent> <leader>cs :Gstatus<cr>
 nnoremap <silent> <leader>cd :Gdiff<cr>
 nnoremap <silent> <leader>cc :Gcommit<cr>
+vnoremap <leader>cg y:Ggrep <C-R>"
 nnoremap <silent> <leader>ce :Gedit HEAD<cr>
 
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
@@ -54,6 +66,7 @@ set relativenumber
 set diffopt=filler,vertical
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
 imap <expr><TAB>
      \ neosnippet#expandable_or_jumpable() ?
      \    "\<Plug>(neosnippet_expand_or_jump)" :
@@ -63,8 +76,8 @@ imap <expr><TAB>
 let g:airline_symbols_ascii = 1
 
 
-highlight NeomakeWarning ctermfg=54 ctermbg=148
-highlight NeomakeError ctermfg=154 ctermbg=126
+highlight NeomakeWarning ctermfg=Red ctermbg=Yellow
+highlight NeomakeError ctermfg=White ctermbg=Red
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -73,3 +86,6 @@ if has("autocmd")
 endif
 
 let g:ledger_bin="hledger"
+
+let g:neomake_idris_enabled_makers = [ 'idris' ]
+let g:neomake_python_enabled_makers = [ 'flake8' ]

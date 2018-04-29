@@ -16,3 +16,16 @@ abbr    import attoparsec
   import qualified Data.Attoparsec.ByteString.Char8 as A
 
 
+snippet dynamic_array
+  import qualified Data.Array as A
+
+  dynArray :: A.Array Int Int
+  dynArray = x where
+      x = A.array (0, 10) [ (i, f i) | i <- A.range (0, 10) ]
+      f 0 = 1
+      f 1 = 1
+      f n = x A.! (n-1) + x A.! (n-2)
+
+snippet      unpack
+abbr         {-# UNPACK #-}
+  {-# UNPACK #-}
