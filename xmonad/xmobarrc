@@ -12,7 +12,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Memory ["-t","M <usedratio>%"] 10
                     , Run Network "wlp4s0" ["-t","N <rx> <tx>"] 10
                     , Run StdinReader
-                    , Run Weather "EGLC" ["-t","<tempC>C <rh>% <windMph>mph"] 60
+                    , Run Weather "EGLC" ["-t","<tempC>C <rh>% <windMph>mph"] 1800
                     ]
        , sepChar = "%"
        , alignSep = "}{"

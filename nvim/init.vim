@@ -89,3 +89,4 @@ let g:ledger_bin="hledger"
 
 let g:neomake_idris_enabled_makers = [ 'idris' ]
 let g:neomake_python_enabled_makers = [ 'flake8' ]
+let g:intero_start_immediately = 0
