@@ -3,6 +3,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 Plug 'kien/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -16,7 +20,6 @@ Plug 'godlygeek/tabular'
 
 Plug 'neovimhaskell/haskell-vim'
 Plug 'parsonsmatt/intero-neovim'
-Plug 'eagletmt/neco-ghc'
 
 Plug 'ElmCast/elm-vim'
 Plug 'majutsushi/tagbar'
@@ -90,3 +93,7 @@ let g:ledger_bin="hledger"
 let g:neomake_idris_enabled_makers = [ 'idris' ]
 let g:neomake_python_enabled_makers = [ 'flake8' ]
 let g:intero_start_immediately = 0
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ }

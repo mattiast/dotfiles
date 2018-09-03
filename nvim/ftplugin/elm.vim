@@ -9,7 +9,6 @@ let g:neomake_elm_elmmake_maker = {
 \ }
 
 " enable elm-make on elm
-let g:neomake_elm_enabled_makers = [ 'elmmake' ]
 
 " use neomake to build different files
 augroup neomake_neomake_build
