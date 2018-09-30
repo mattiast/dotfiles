@@ -42,6 +42,9 @@ myLayout = avoidStruts (Full ||| tiled ||| Mirror tiled ||| tabd) ||| Full
 myKeys :: [(String, X ())]
 myKeys = [ ("M-s", sshPrompt myPromptConfig)
          , ("M-p", shellPrompt myPromptConfig )
+         , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 3%+" )
+         , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 3%-" )
+         , ("<XF86AudioMute>", spawn "amixer -q sset Master toggle" )
          , ("<XF86MonBrightnessDown>", spawn "xbacklight -5" )
          , ("<XF86MonBrightnessUp>", spawn "xbacklight +5" )
          , ("<Print>", chromeJump myChromePages )
@@ -55,8 +58,8 @@ getStuff = findWin (isSuffixOf "Google Chrome")
 myChromePages :: [(String, String)]
 myChromePages = [ ("Trello", "https://trello.com/b/39zd4rph/nextactions")
                 , ("Mail", "https://mail.google.com/mail/")
-                , ("Kasti", "http://46.101.45.150:3000/browse")
-                , ("Rabbit", "http://www.rabbit-account.com:8000/report")
+                , ("Kasti", "https://kasti.me.uk/continue")
+                , ("Rabbit", "https://rabbit-account.com/all")
                 , ("Tutorfair", "https://tutorfair.com")
                 ]
 
