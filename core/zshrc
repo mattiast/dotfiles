@@ -48,4 +48,7 @@ alias ec2table='aws ec2 describe-instances --query \
 alias ec2start="aws ec2 start-instances --instance-ids"
 alias ec2end="aws ec2 stop-instances --instance-ids"
 alias ec2rds='aws rds describe-db-instances --region eu-west-1 --query "DBInstances[*].{aname: DBName, engine: Engine, version: EngineVersion}" --output table'
+ecrtags () {
+    aws ecr describe-images --repository-name $1 --query 'imageDetails[*].{tag: imageTags[0], pushed: imagePushedAt}' --output table
+}
 source ~/.nix-profile/etc/profile.d/nix.sh
