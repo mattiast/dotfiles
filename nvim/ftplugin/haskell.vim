@@ -11,3 +11,5 @@ map <silent> <leader>ti :InteroInfo<cr>
 map <leader>tc :!echo ":ctags" \| stack ghci<cr>
 
 let g:haskellmode_completion_ghc = 0
+
+command! Hindent :!hindent %:p
