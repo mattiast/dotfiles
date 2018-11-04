@@ -10,7 +10,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git stack pip virtualenv kubectl rust)
+plugins=(git stack pip virtualenv kubectl cargo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -52,3 +52,5 @@ ecrtags () {
     aws ecr describe-images --repository-name $1 --query 'imageDetails[*].{tag: imageTags[0], pushed: imagePushedAt}' --output table
 }
 source ~/.nix-profile/etc/profile.d/nix.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -12,3 +12,7 @@ abbr        json.dump
 	import json
     with open('$1.json', 'w') as f:
         json.dump(${1:stuff}, f)
+
+snippet     pudb
+abbr        import pudb..
+	import pudb; pudb.set_trace()

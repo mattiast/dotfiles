@@ -20,7 +20,6 @@ Plug 'godlygeek/tabular'
 
 Plug 'neovimhaskell/haskell-vim'
 Plug 'parsonsmatt/intero-neovim'
-
 Plug 'ElmCast/elm-vim'
 Plug 'majutsushi/tagbar'
 Plug 'pbogut/deoplete-elm'
@@ -32,10 +31,13 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'zchee/deoplete-jedi'
 
 Plug 'idris-hackers/idris-vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -112,5 +114,5 @@ let g:ledger_bin="hledger"
 
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'nightly', 'rls'],
     \ }
