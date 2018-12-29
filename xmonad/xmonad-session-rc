@@ -1,6 +1,8 @@
 #!/bin/bash
  
 export PATH="$HOME/bin:$PATH"
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
+
 # Load resources
  
 xrdb -merge .Xresources
@@ -14,6 +16,7 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
  
 xsetroot -solid midnightblue
 xset r rate 300 25
+xinput --set-prop "TPPS/2 IBM TrackPoint" "libinput Accel Speed" -0.2
  
 # Fire up apps
  
