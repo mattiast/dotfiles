@@ -38,6 +38,8 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'LnL7/vim-nix'
+Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -61,8 +63,6 @@ nnoremap <leader>p "*p
 vnoremap <leader>S "+y
 nnoremap <leader>P "+p
 nnoremap <leader>C :%s///gn<cr>
-vnoremap <leader>' :s/'/ä/g
-vnoremap <leader>; :s/;/ö/g
 
 nnoremap <silent> <leader>cs :Gstatus<cr>
 nnoremap <silent> <leader>cd :Gdiff<cr>
@@ -71,6 +71,12 @@ vnoremap <leader>cg y:Ggrep <C-R>"
 nnoremap <leader>cg yiw:Ggrep "\<<C-R>"\>"
 nnoremap <leader>cv :copen<cr>
 nnoremap <silent> <leader>ce :Gedit HEAD<cr>
+
+function! FixAO() range
+  silent! execute a:firstline . "," . a:lastline . "s/'/ä/g"
+  silent! execute a:firstline . "," . a:lastline . "s/;/ö/g"
+endfunction
+vnoremap <leader>; :call FixAO()<cr>
 
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set wildignorecase
@@ -84,24 +90,21 @@ set updatetime=100
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
-imap <expr><TAB>
-     \ neosnippet#expandable_or_jumpable() ?
-     \    "\<Plug>(neosnippet_expand_or_jump)" :
-     \    pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:airline_symbols_ascii = 1
 
 let g:ctrlp_working_path_mode = 'a'
 
-let g:neomake_rust_enabled_makers = ['cargo', 'clippy']
+let g:neomake_rust_enabled_makers = ['cargo']
+let g:neomake_elm_enabled_makers = ['elmMake']
 
 let g:neomake_python_enabled_makers = ['flake8', 'mypy']
+let g:neomake_python_mypy_args = neomake#makers#ft#python#mypy().args + ['--python-version', '3.7']
 let g:neomake_idris_enabled_makers = ['idris']
 highlight NeomakeWarning ctermfg=Red ctermbg=Yellow
 highlight NeomakeError ctermfg=White ctermbg=Red
-
-command! Imps :!imps %:p
-command! Black :!black -l 79 %:p
+highlight ALEWarning ctermfg=Red ctermbg=Yellow
+highlight ALEError ctermfg=White ctermbg=Red
 
 let g:intero_start_immediately = 0
 " Jump to the last position when reopening a file
