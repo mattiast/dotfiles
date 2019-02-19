@@ -2,3 +2,4 @@
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
+if [ -e /home/matti/.nix-profile/etc/profile.d/nix.sh ]; then . /home/matti/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

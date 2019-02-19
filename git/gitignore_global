@@ -5,3 +5,5 @@ tags
 elm-stuff
 .venv
 .vscode
+.mypy_cache
+*.log
