@@ -114,7 +114,7 @@ if has("autocmd")
 endif
 
 let g:ledger_bin="hledger"
-
+let g:markdown_folding = 1
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'nightly', 'rls'],

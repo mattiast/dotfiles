@@ -1,6 +1,7 @@
 " define elm-make maker
 let g:neomake_elm_elmmake_maker = {
-  \ 'exe': 'elm-make',
+  \ 'exe': 'elm',
+  \ 'args': 'make',
   \ 'buffer_output': 1,
   \ 'errorformat':
     \ '%E%.%#--\ %m\ -%# %f' . ',' .
