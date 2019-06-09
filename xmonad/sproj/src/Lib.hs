@@ -1,6 +1,8 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Lib where
+module Lib
+  ( main
+  ) where
 
 import Control.Monad (filterM)
 import Data.Foldable (traverse_)
@@ -12,15 +14,17 @@ import System.IO
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName (setWMName)
 import XMonad.Layout.Tabbed
-import XMonad.Hooks.SetWMName(setWMName)
-import XMonad.Prompt
+import XMonad.Prompt hiding (pasteString)
 import XMonad.Prompt.Shell
 import XMonad.Prompt.Ssh
 import qualified XMonad.StackSet as SS
 import XMonad.Util.Dmenu (menuArgs)
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
+import XMonad.Util.Paste (pasteString)
 import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
+import XMonad.Util.XSelection (getSelection)
 
 myManageHook :: ManageHook
 myManageHook =
@@ -55,9 +59,15 @@ myKeys =
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
   , ("<Print>", chromeJump myChromePages)
-  , ("<XF86Display>", getStuff)
+  , ("<XF86Display>", jutska)
   , ("<XF86AudioMicMute>", toggleVpn "smarkets")
   ]
+
+jutska :: X ()
+jutska = do
+  input <- getSelection
+  output <- runProcessWithInput "mysudoku" [] input
+  pasteString output
 
 checkVpn :: String -> X Bool
 checkVpn name = do

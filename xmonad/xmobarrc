@@ -12,9 +12,9 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Memory ["-t","M <usedratio>%"] 10
                     , Run Network "wlp4s0" ["-t","N <rx> <tx>"] 10
                     , Run StdinReader
-                    , Run Weather "EGLC" ["-t","<tempC>C <rh>% <windMph>mph"] 1800
+                    , Run Weather "EIDW" ["-t","<tempC>C <rh>% <windMph>mph"] 1800
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% | %wlp4s0% |%battery% |%bright% | <fc=#ee9a00>%date%</fc> %EGLC%"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %wlp4s0% |%battery% |%bright% | <fc=#ee9a00>%date%</fc> %EIDW%"
        }
