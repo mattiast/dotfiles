@@ -34,7 +34,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.local/bin:~/Downloads/go/go/bin
 
 eval "`dircolors -b`"
 alias dir='dir --color=auto'
@@ -42,6 +42,7 @@ alias grep='grep --color=auto'
 alias octave='octave --no-gui -q'
 alias cd..='cd ..'
 alias tmux='TERM=screen-256color-bce tmux'
+alias m='mpv --really-quiet'
 
 alias ec2table='aws ec2 describe-instances --query \
     \ "Reservations[*].Instances[].{type: InstanceType, state: State.Name, id : InstanceId, publicIp : PublicIpAddress}" --output table'
@@ -51,6 +52,10 @@ alias ec2rds='aws rds describe-db-instances --region eu-west-1 --query "DBInstan
 ecrtags () {
     aws ecr describe-images --repository-name $1 --query 'imageDetails[*].{tag: imageTags[0], pushed: imagePushedAt}' --output table
 }
+alias cdw="cd ~/progs/2019/wadler-agda"
 source ~/.nix-profile/etc/profile.d/nix.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
