@@ -9,7 +9,6 @@ import Data.Foldable (traverse_)
 import Data.Function ((&))
 import Data.List
 import Data.Maybe (listToMaybe)
-import Data.Monoid ((<>), mconcat)
 import System.IO
 import XMonad
 import XMonad.Hooks.DynamicLog
@@ -60,7 +59,7 @@ myKeys =
   , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
   , ("<Print>", chromeJump myChromePages)
   , ("<XF86Display>", jutska)
-  , ("<XF86AudioMicMute>", toggleVpn "smarkets")
+  , ("<XF86AudioMicMute>", safeSpawn "alacritty" ["-e", "fish"])
   ]
 
 jutska :: X ()
@@ -127,4 +126,4 @@ main = do
     , borderWidth = 0
     } `additionalKeysP`
     myKeys `removeKeysP`
-    ["M-<Return>"]
+    ["M-<Return>", "M-w"]
