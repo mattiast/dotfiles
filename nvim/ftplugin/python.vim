@@ -3,5 +3,5 @@ setlocal foldmethod=indent
 setlocal foldnestmax=1
 setlocal foldminlines=4
 
-command! Imps :!imps %:p
+command! Imps :!isort %:p
 command! Black :!black %:p

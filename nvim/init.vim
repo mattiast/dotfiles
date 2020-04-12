@@ -32,6 +32,7 @@ Plug 'ianks/vim-tsx'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 
 Plug 'idris-hackers/idris-vim'
 Plug 'mattn/gist-vim'
@@ -40,6 +41,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'LnL7/vim-nix'
 Plug 'tpope/vim-unimpaired'
+Plug 'vale1410/vim-minizinc'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -98,7 +101,7 @@ let g:ctrlp_working_path_mode = 'a'
 let g:neomake_rust_enabled_makers = ['cargo']
 let g:neomake_elm_enabled_makers = ['elmMake']
 
-let g:neomake_python_enabled_makers = ['flake8', 'mypy']
+let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_python_mypy_args = neomake#makers#ft#python#mypy().args + ['--python-version', '3.7']
 let g:neomake_idris_enabled_makers = ['idris']
 highlight NeomakeWarning ctermfg=Red ctermbg=Yellow
