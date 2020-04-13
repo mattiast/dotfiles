@@ -3,6 +3,10 @@ if [[ ! -e $HOME/.config/nvim ]]; then
     ln -s $CURRENTDIR/nvim $HOME/.config/nvim
 fi
 
+if [[ ! -e $HOME/.config/fish ]]; then
+    ln -s $CURRENTDIR/fish $HOME/.config/fish
+fi
+
 # git
 if [[ ! -e $HOME/.gitconfig ]]; then
     ln -s $CURRENTDIR/git/gitconfig $HOME/.gitconfig
