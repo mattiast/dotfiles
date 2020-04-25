@@ -122,7 +122,7 @@ main = do
         { ppOutput = hPutStrLn xmobar_proc
         , ppTitle = xmobarColor "green" "" . shorten 85
         }
-    , terminal = "xterm"
+    , terminal = "alacritty"
     , borderWidth = 0
     } `additionalKeysP`
     myKeys `removeKeysP`
