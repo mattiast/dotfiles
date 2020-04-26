@@ -57,7 +57,6 @@ myKeys =
   , ("<XF86AudioMute>", spawn "amixer -q sset Master toggle")
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
-  , ("<Print>", chromeJump myChromePages)
   , ("<XF86Display>", jutska)
   , ("<XF86AudioMicMute>", safeSpawn "alacritty" ["-e", "fish"])
   ]
@@ -84,14 +83,6 @@ toggleVpn name = do
 
 getStuff :: X ()
 getStuff = findWin (isSuffixOf "Google Chrome") >>= traverse_ focus
-
-myChromePages :: [(String, String)]
-myChromePages =
-  [ ("Trello", "https://trello.com/b/39zd4rph/nextactions")
-  , ("Mail", "https://mail.google.com/mail/")
-  , ("Kasti", "https://kasti.me.uk/continue")
-  , ("Rabbit", "https://rabbit-account.com/all")
-  ]
 
 chromeJump :: [(String, String)] -> X ()
 chromeJump pages = do
