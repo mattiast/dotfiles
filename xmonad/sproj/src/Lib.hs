@@ -37,6 +37,7 @@ myPromptConfig =
   , fgColor = "green"
   , promptBorderWidth = 0
   , historyFilter = uniqSort
+  , maxComplRows = Just 4
   }
 
 myLayout = avoidStruts (Full ||| tiled ||| Mirror tiled ||| tabd) ||| Full
@@ -57,38 +58,8 @@ myKeys =
   , ("<XF86AudioMute>", spawn "amixer -q sset Master toggle")
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -5")
   , ("<XF86MonBrightnessUp>", spawn "xbacklight +5")
-  , ("<XF86Display>", jutska)
   , ("<XF86AudioMicMute>", safeSpawn "alacritty" ["-e", "fish"])
   ]
-
-jutska :: X ()
-jutska = do
-  input <- getSelection
-  output <- runProcessWithInput "mysudoku" [] input
-  pasteString output
-
-checkVpn :: String -> X Bool
-checkVpn name = do
-  out <- runProcessWithInput "nmcli" ["-t", "con", "show", "--active"] ""
-  return $ any (isPrefixOf (name <> ":")) (lines out)
-
-toggleVpn :: String -> X ()
-toggleVpn name = do
-  on <- checkVpn name
-  let upDown =
-        if on
-          then "down"
-          else "up"
-  safeSpawn "nmcli" ["con", upDown, name]
-
-getStuff :: X ()
-getStuff = findWin (isSuffixOf "Google Chrome") >>= traverse_ focus
-
-chromeJump :: [(String, String)] -> X ()
-chromeJump pages = do
-  choice <- menuArgs "dmenu" ["-i"] (fmap fst pages)
-  lookup choice pages &
-    traverse_ (\url -> safeSpawn "google-chrome" [url] >> getStuff)
 
 findWin :: (String -> Bool) -> X (Maybe Window)
 findWin filt = do

@@ -24,6 +24,10 @@ if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
 fi
 
+if [ -x /usr/bin/volumeicon ] ; then
+   volumeicon &
+fi
+
 DROPBOXDIST=/home/matti/.dropbox-dist
 DROPBOXDIR=$DROPBOXDIST/dropbox-lnx.x86_64-`cat $DROPBOXDIST/VERSION`
 $DROPBOXDIR/dropbox start &
