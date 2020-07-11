@@ -11,3 +11,4 @@ elm-stuff
 *.aux
 *.out
 *.pdf
+.ipynb_checkpoints
