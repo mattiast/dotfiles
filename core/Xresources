@@ -4,7 +4,7 @@ xterm*background: black
 xterm*visualBell: true
 xterm*visualBellDelay: 0
 XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 11
+XTerm*faceSize: 12
 XTerm*termName:  xterm-256color
 
 XDvi*editor: gvim --servername xdvi --remote +%l %f

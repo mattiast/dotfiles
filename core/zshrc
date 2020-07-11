@@ -53,6 +53,7 @@ ecrtags () {
     aws ecr describe-images --repository-name $1 --query 'imageDetails[*].{tag: imageTags[0], pushed: imagePushedAt}' --output table
 }
 alias cdw="cd ~/progs/2019/wadler-agda"
+alias cdk="cd ~/kasti && nix-shell -A env"
 source ~/.nix-profile/etc/profile.d/nix.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
