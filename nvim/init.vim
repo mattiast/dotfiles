@@ -8,8 +8,12 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'kien/ctrlp.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'pbogut/deoplete-elm'
+" Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
@@ -22,7 +26,6 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'parsonsmatt/intero-neovim'
 Plug 'ElmCast/elm-vim'
 Plug 'majutsushi/tagbar'
-Plug 'pbogut/deoplete-elm'
 Plug 'cstrahan/vim-capnp'
 Plug 'benmills/vimux'
 Plug 'hwayne/tla.vim'
@@ -31,8 +34,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
 Plug 'idris-hackers/idris-vim'
 Plug 'mattn/gist-vim'
@@ -79,6 +81,8 @@ nnoremap <silent> <leader>ce :Gedit HEAD<cr>
 function! FixAO() range
   silent! execute a:firstline . "," . a:lastline . "s/'/ä/g"
   silent! execute a:firstline . "," . a:lastline . "s/;/ö/g"
+  silent! execute a:firstline . "," . a:lastline . "s/\\[/õ/g"
+  silent! execute a:firstline . "," . a:lastline . "s/\\]/ü/g"
 endfunction
 vnoremap <leader>; :call FixAO()<cr>
 
@@ -119,3 +123,5 @@ endif
 
 let g:ledger_bin="hledger"
 let g:markdown_folding = 1
+
+imap {<cr> {<cr>}<esc>ko

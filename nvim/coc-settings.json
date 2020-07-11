@@ -1,0 +1,19 @@
+{
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  },
+  // If you use neovim you can enable codelenses with this
+  "codeLens.enable": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.jediEnabled": false,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+}
